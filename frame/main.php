@@ -11,7 +11,17 @@ if ($nivel == 1) {
     $dis = "disabled";
 }
 
+$sql = "select id from cidade order by id desc limit 1";
 
+$query = mysqli_query($con, $sql);
+
+$tab = mysqli_fetch_array($query);
+$partes = explode(' ', $tab[0]);
+
+$slq1 = "select id from pessoa";
+
+$query1 = mysqli_query($con, $slq1);
+$tab1 = mysqli_num_rows($query1);
 
 
 ?>
@@ -78,20 +88,45 @@ if ($nivel == 1) {
         </div>
     </nav>
 
-    <div class="container mt-2">
-    <div class="card bg-dark text-white" style="width: 1149px; height: 270px;">
-  <img class="card-img" src="../img/imagem.png" style="height: 270px; object-fit: cover;" alt="Imagem do card">
-  <div class="card-img-overlay" >
-    <h5 class="card-title" >Sistema de Cadastro</h5>
-    <p class="card-text" >Este é um sistema para demonstração de conhecimento do desenvolvedor!</p>
-    <p class="card-text">É a junção das seguintes ferramentas:</p>
-    <p class="card-text">- HTML 5 & CSS 3</p>
-    <p class="card-text">- JavaScript & PHP</p>
-    <p class="card-text">- E muitas horas programadas</p>
-  </div>
-</div>
+    <div class="container-fluid mt-2">
+        <div class="card bg-dark text-white">
+            <img class="card-img" src="../img/imagem.png" style="height: 270px; object-fit: cover;" alt="Imagem do card">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Sistema de Cadastro</h5>
+                <p class="card-text">Este é um sistema para demonstração de conhecimento do desenvolvedor!</p>
+                <p class="card-text">É a junção das seguintes ferramentas:</p>
+                <p class="card-text">- HTML 5 & CSS 3</p>
+                <p class="card-text">- JavaScript & PHP</p>
+                <p class="card-text">- E muitas horas programadas</p>
+            </div>
+        </div>
     </div>
+    <div class="container mt-3 mb-3">
 
+        <div class="card-group">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" style="height: 200px; width: 362px;" src="../img/cidade.png" alt="Imagem de capa do card">
+                <div class="card-body">
+                    <p class="card-text">Possuimos um total de <?php
+                                                                echo $partes[0];
+                                                                ?> cidades cadastradas no sistema</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" style="height: 200px; width: 362px;" src="../img/povo.png" alt="Imagem de capa do card">
+                <div class="card-body">
+                    <p class="card-text">Possuimos um total de <?php
+                                                                echo $tab1;
+                                                                ?> pessoas cadastradas no sistema</p>
+                </div>
+            </div>
+            <div class="card ml-2" style="width: 18rem;">
+                <img class="card-img-top" style="height: 200px; width: 362px;" src="../img/estado.png" alt="Imagem de capa do card">
+                <div class="card-body">
+                    <p class="card-text">Todos os nossos 27 estados estão presentes no sistema</p>
+                </div>
+            </div>
+        </div>
 
 </body>
 
