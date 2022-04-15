@@ -78,13 +78,7 @@ if ($nivel == 1) {
             </div>
         </div>
     </nav>
-
-
     <div class="container mt-2" id="app4">
-
-
-
-
     </div>
 
 </body>
